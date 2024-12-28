@@ -8,6 +8,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { WinstonModule } from 'nest-winston';
 import { logFormatter } from './modules/shared/services/logger/formatter';
 import { AuthModule } from './modules/auth/auth.module';
+import { BlogModule } from './modules/blog/blog.module';
 const { combine, colorize, splat, timestamp } = winston.format;
 
 @Module({
@@ -26,7 +27,8 @@ const { combine, colorize, splat, timestamp } = winston.format;
       ]
     }),
     SharedModule,
-    AuthModule
+    AuthModule,
+    BlogModule
   ],
   controllers: [AppController],
   providers: [AppService],
