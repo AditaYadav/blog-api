@@ -5,8 +5,10 @@ const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
 const ormconfig_1 = require("../ormconfig");
 const config_1 = require("./config");
+const nest_winston_1 = require("nest-winston");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    app.useLogger(app.get(nest_winston_1.WINSTON_MODULE_NEST_PROVIDER));
     const config = new swagger_1.DocumentBuilder()
         .setTitle("Blog")
         .setDescription("Blog Core API")
